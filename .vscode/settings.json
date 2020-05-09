@@ -1,4 +1,5 @@
 {
+  "extensions.ignoreRecommendations": true,
   "cSpell.words": [
     "Scully",
     "Scullyio",
