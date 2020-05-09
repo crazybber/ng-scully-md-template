@@ -1,3 +1,4 @@
+//https://github.com/scullyio/scully/blob/master/docs/scully-configuration.md
 exports.config = {
   projectRoot: "./src",
   projectName: "pipiblog",
@@ -6,7 +7,7 @@ exports.config = {
     '/blog/:title': {
       type: 'contentFolder',
       title: {
-        folder: "./mdblog"
+        folder: "./blog"
       }
     },
   }
