@@ -5,6 +5,12 @@ exports.config = {
   outDir: './dist/static',
   staticPort:'5000',
   routes: {
+    '/about/:id': {
+      type: 'contentFolder',
+      id: {
+        folder: "./blog"
+      }
+    },
     '/blog/:title': {
       type: 'contentFolder',
       title: {
