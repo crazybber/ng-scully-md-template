@@ -3,6 +3,7 @@ exports.config = {
   projectRoot: "./src",
   projectName: "pipiblog",
   outDir: './dist/static',
+  staticPort:'5000',
   routes: {
     '/blog/:title': {
       type: 'contentFolder',

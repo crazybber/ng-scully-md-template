@@ -1,6 +1,6 @@
 {
   "name": "pipiblog",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -10,6 +10,9 @@
     "e2e": "ng e2e",
     "scully": "scully",
     "scully:serve": "scully serve",
+    "sr":"npm run scully -- --scanRoutes",
+    "sw":"scully --watch",
+    "ss": "scully serve",
     "commit": "git add . && npx git-cz",
     "commit:select": "npx git-cz"
   },
