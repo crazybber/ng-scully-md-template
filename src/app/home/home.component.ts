@@ -13,23 +13,7 @@ export class HomeComponent implements OnInit {
   headers = require('raw-loader!../markdown/headers.md').default;
   emphasis = require('raw-loader!../markdown/emphasis.md').default;
   images = require('raw-loader!../markdown/images.md').default;
-
-  //#region variable-binding
-  markdown = `### Markdown example
-    ---
-    This is an **example** where we bind a variable to the \`markdown\` component that is also bind to a textarea.
-
-    #### example.component.ts
-    \`\`\`typescript
-    public markdown = "# Markdown";
-    \`\`\`
-
-    #### example.component.html
-    \`\`\`html
-    <textarea [(ngModel)]="markdown"></textarea>
-    <markdown [data]="markdown"></markdown>
-    \`\`\``;
-  //#endregion
+  markdown = require('raw-loader!../markdown/binding-variable.md').default;
 
   protected _titleIsAnimating = false;
   protected _pushpinIsOn = false;
@@ -38,8 +22,24 @@ export class HomeComponent implements OnInit {
   onWindowResize() {
     this.initPushpin();
   }
-  initPushpin() {
-    throw new Error('Method not implemented.');
+
+  private initPushpin() {
+    const tableOfContent = $('.table-of-contents');
+    // add pushpin
+    if (!this._pushpinIsOn && window.innerWidth > 992) {
+      const pushpinTop = tableOfContent.parent().offset().top;
+      tableOfContent.pushpin({ top: pushpinTop });
+      this._pushpinIsOn = true;
+    }
+    // remove pushpin
+    if (this._pushpinIsOn && window.innerWidth <= 992) {
+      tableOfContent.pushpin('remove' as any);
+      this._pushpinIsOn = false;
+    }
+  }
+
+  private initScrollSpy() {
+    $('section').scrollSpy();
   }
 
   @HostListener('window:scroll')
@@ -71,8 +71,25 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  animateTitle() {
-    throw new Error('Method not implemented.');
+  private animateTitle() {
+    const title = $('.title a');
+    const titleOffset = title[0].offsetTop;
+    const windowOffset = window.pageYOffset;
+    const currentFontSize = title[0].style.fontSize;
+    const targetFontSize = windowOffset > titleOffset ? '2.28rem' : '2.92rem';
+
+    if (currentFontSize !== targetFontSize && !this._titleIsAnimating) {
+      title.animate(
+        { fontSize: targetFontSize },
+        {
+          duration: 200,
+          queue: false,
+          easing: 'easeOutCubic',
+          start: () => (this._titleIsAnimating = true),
+          complete: () => (this._titleIsAnimating = false),
+        }
+      );
+    }
   }
 
   constructor(private markdownService: MarkdownService) {}
@@ -84,15 +101,16 @@ export class HomeComponent implements OnInit {
   }
 
   onPageUp() {
-    // $('html, body').animate({ scrollTop: 0 }, {
-    //   duration: 400,
-    //   queue: false,
-    //   easing: 'easeOutCubic',
-    // });
+    $('html, body').animate(
+      { scrollTop: 0 },
+      {
+        duration: 400,
+        queue: false,
+        easing: 'easeOutCubic',
+      }
+    );
   }
-  initScrollSpy() {
-    throw new Error('Method not implemented.');
-  }
+
   private initMarkdown() {
     this.markdownService.renderer.heading = (text: string, level: number) => {
       const escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');

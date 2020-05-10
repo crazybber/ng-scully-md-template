@@ -21,17 +21,17 @@
       <div class="title-based-on">
         demo from <a href="https://arch.run" target="_blank">arch.run</a>
       </div>
+      <ul>
+        <li class="menu-subtitle"><span>Topics</span></li>
+        <li><a href="https://arch.run/introduce">Summary</a></li>
+        <li><a href="#emphasis">Technology</a></li>
+        <li><a href="#lists">Life</a></li>
+        <li class="menu-subtitle"><span>Some Friends</span></li>
+        <li><a href="#images">Images</a></li>
+        <li class="menu-subtitle"><span>Github Open Source</span></li>
+        <li><a href="#links">Links</a></li>
+      </ul>
     </div>
-    <ul>
-      <li class="menu-subtitle"><span>Topics</span></li>
-      <li><a href="https://arch.run/introduce">Summary</a></li>
-      <li><a href="#emphasis">Technology</a></li>
-      <li><a href="#lists">Life</a></li>
-      <li class="menu-subtitle"><span>Some Friends</span></li>
-      <li><a href="#images">Images</a></li>
-      <li class="menu-subtitle"><span>Github Open Source</span></li>
-      <li><a href="#links">Links</a></li>
-    </ul>
   </div>
   <div class="col s12 l9">
     <!-- CONTENT FROM REMOTE URL -->
@@ -61,6 +61,21 @@
       <textarea class="variable-textarea" [(ngModel)]="markdown"></textarea>
       <markdown class="variable-binding" [data]="markdown"></markdown>
     </section>
+
+    <!-- PLUGINS - LineNumbers -->
+    <section id="line-numbers">
+      <h3 class="subtitle">Code Line Numbers plugin</h3>
+      <markdown>
+        The example below uses `lineNumbers` directive which uses default line
+        offset of 1.
+      </markdown>
+      <markdown
+        lineNumbers
+        ngPreserveWhitespaces
+        [src]="'assets/remote/line-numbers.html'"
+      ></markdown>
+    </section>
+
     <!-- HEADER -->
     <section id="headers">
       <h2 class="subtitle">Init MD Content from Source Code dir</h2>
