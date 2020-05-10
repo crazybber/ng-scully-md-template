@@ -36,5 +36,6 @@ export function markedOptions(): MarkedOptions {
   ],
   providers: [],
   bootstrap: [AppComponent],
+  exports: [MarkdownModule],
 })
 export class AppModule {}
