@@ -1,6 +1,7 @@
 {
   "name": "pipiblog",
   "version": "0.0.1",
+  "description": "angular scully web template",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -14,8 +15,10 @@
     "sr": "npm run scully -- --scanRoutes",
     "sw": "scully --watch",
     "ss": "scully serve",
+    "post": "ng g @scullyio/init:post --target='blog'",
     "commit": "git add . && npx git-cz",
-    "commit:select": "npx git-cz"
+    "commit:select": "npx git-cz",
+    "deploy:gh-pages": "git subtree push --prefix dist/site-blog origin gh-pages"
   },
   "private": true,
   "dependencies": {
@@ -30,6 +33,9 @@
     "@scullyio/init": "0.0.26",
     "@scullyio/ng-lib": "latest",
     "@scullyio/scully": "latest",
+    "marked": "^1.0.0",
+    "ngx-markdown": "^9.0.0",
+    "prismjs": "^1.20.0",
     "rxjs": "~6.5.5",
     "tslib": "^1.11.2",
     "zone.js": "~0.10.3"
@@ -43,11 +49,9 @@
     "@types/jasminewd2": "~2.0.8",
     "@types/node": "^13.13.5",
     "codelyzer": "^5.2.2",
-    "husky": "4.2.5",
-    "lint-staged": "10.2.2",
-    "prettier": "2.0.5",
     "conventional-changelog": "^3.1.21",
     "cz-conventional-changelog": "^3.2.0",
+    "husky": "4.2.5",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~5.0.2",
     "karma": "~5.0.5",
@@ -55,6 +59,9 @@
     "karma-coverage-istanbul-reporter": "~3.0.2",
     "karma-jasmine": "~3.1.1",
     "karma-jasmine-html-reporter": "^1.5.3",
+    "lint-staged": "10.2.2",
+    "npm-check-updates": "^5.0.0",
+    "prettier": "2.0.5",
     "protractor": "~5.4.4",
     "ts-node": "~8.10.1",
     "tslint": "~6.1.2",
