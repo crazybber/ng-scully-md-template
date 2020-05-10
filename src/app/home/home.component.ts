@@ -10,11 +10,25 @@ import { delay, first, tap } from 'rxjs/operators';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  //#region markdown
-  headers = 'this is head'; //require('raw-loader!./markdown/headers.md').default;
-  // images = require('raw-loader!./markdown/images.md').default;
-  // links = require('raw-loader!./markdown/links.md').default;
-  // lists = require('raw-loader!./markdown/lists.md').default;
+  headers = require('raw-loader!../markdown/headers.md').default;
+  emphasis = require('raw-loader!../markdown/emphasis.md').default;
+  images = require('raw-loader!../markdown/images.md').default;
+
+  //#region variable-binding
+  markdown = `### Markdown example
+    ---
+    This is an **example** where we bind a variable to the \`markdown\` component that is also bind to a textarea.
+
+    #### example.component.ts
+    \`\`\`typescript
+    public markdown = "# Markdown";
+    \`\`\`
+
+    #### example.component.html
+    \`\`\`html
+    <textarea [(ngModel)]="markdown"></textarea>
+    <markdown [data]="markdown"></markdown>
+    \`\`\``;
   //#endregion
 
   protected _titleIsAnimating = false;
@@ -79,7 +93,25 @@ export class HomeComponent implements OnInit {
   initScrollSpy() {
     throw new Error('Method not implemented.');
   }
-  initMarkdown() {
-    throw new Error('Method not implemented.');
+  private initMarkdown() {
+    this.markdownService.renderer.heading = (text: string, level: number) => {
+      const escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
+      return (
+        '<h' +
+        level +
+        '>' +
+        '<a name="' +
+        escapedText +
+        '" class="anchor" href="#' +
+        escapedText +
+        '">' +
+        '<span class="header-link"></span>' +
+        '</a>' +
+        text +
+        '</h' +
+        level +
+        '>'
+      );
+    };
   }
 }

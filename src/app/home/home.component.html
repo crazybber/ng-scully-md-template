@@ -27,17 +27,13 @@
       <li><a href="https://arch.run/introduce">Summary</a></li>
       <li><a href="#emphasis">Technology</a></li>
       <li><a href="#lists">Life</a></li>
+      <li class="menu-subtitle"><span>Some Friends</span></li>
       <li><a href="#images">Images</a></li>
+      <li class="menu-subtitle"><span>Github Open Source</span></li>
       <li><a href="#links">Links</a></li>
     </ul>
   </div>
   <div class="col s12 l9">
-    <!-- HEADER -->
-    <section id="headers">
-      <h2 class="subtitle">Headers</h2>
-      <pre> prev: {{ headers }}</pre>
-    </section>
-
     <!-- CONTENT FROM REMOTE URL -->
     <section id="remote-url">
       <h3 class="subtitle">Load Contents from remote</h3>
@@ -46,6 +42,30 @@
         `assets/remote/demo.md`
       </markdown>
       <markdown [src]="'assets/remote/demo.md'"></markdown>
+    </section>
+
+    <markdown>
+      Using directive with `src` property to fetch remote html file
+      `assets/remote/demo.html`
+    </markdown>
+    <div markdown [src]="'assets/remote/demo.html'"></div>
+
+    <section id="variable-binding">
+      <h3 class="subtitle">Binding markdown content to Variable</h3>
+
+      <markdown>
+        Using component or directive with `data` property allow to bind a
+        variable that will update the DOM when value changes
+      </markdown>
+
+      <textarea class="variable-textarea" [(ngModel)]="markdown"></textarea>
+      <markdown class="variable-binding" [data]="markdown"></markdown>
+    </section>
+    <!-- HEADER -->
+    <section id="headers">
+      <h2 class="subtitle">Init MD Content from Source Code dir</h2>
+      <pre> {{ headers }}</pre>
+      <markdown>{{ emphasis }}</markdown>
     </section>
   </div>
 </div>
