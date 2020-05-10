@@ -1,5 +1,42 @@
-<p>home works!</p>
+<div class="fixed-action-btn">
+  <button
+    class="blue btn-floating btn-large waves-effect waves-light scale-transition scale-out"
+    (click)="onPageUp()"
+  >
+    <svg class="center" style="width: 32px; height: 32px;" viewBox="0 0 24 24">
+      <path
+        fill="#ffffff"
+        d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z"
+      />
+    </svg>
+  </button>
+</div>
 
-<ul>
-  <li *ngFor="let page of links$ | async">{{ page.route }}</li>
-</ul>
+<div class="row">
+  <div class="col s12 l3">
+    <div class="table-of-contents">
+      <h3 class="title">
+        <a href="https://arch.run">Content Menus</a>
+      </h3>
+      <div class="title-based-on">
+        demo for <a href="https://arch.run" target="_blank">arch.run</a>
+      </div>
+      <ul>
+        <li class="menu-subtitle"><span>Markdown</span></li>
+        <li><a href="#headers">Headers</a></li>
+        <li><a href="#emphasis">Emphasis</a></li>
+        <li><a href="#lists">Lists</a></li>
+        <li><a href="#links">Links</a></li>
+        <li><a href="#images">Images</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="col s12 l9">
+    <!-- HEADER -->
+    <section id="headers">
+      <h2 class="subtitle">Headers</h2>
+      <pre>{{ headers }}</pre>
+      <!-- <markdown>{{ headers }}</markdown> -->
+    </section>
+  </div>
+</div>
