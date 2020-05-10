@@ -35,7 +35,6 @@
     "@scullyio/scully": "latest",
     "@types/jquery": "^3.3.38",
     "@types/materialize-css": "^1.0.7",
-    "bootstrap": "^4.4.1",
     "jquery": "^3.5.1",
     "marked": "^1.0.0",
     "materialize-css": "^0.100.2",
