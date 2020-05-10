@@ -1,5 +1,5 @@
-### Demo markdown from Remote
+### Demo Load markdown from Remote
 
 ```html
-<div markdown [src]="asset/remote/demo.md"></div>
+<div markdown [src]="remote/demo.md"></div>
 ```
