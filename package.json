@@ -5,13 +5,14 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "prettier": "prettier --write \"**/*.{js,json,css,scss,less,md,ts,html,component.html}\"",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "scully": "scully",
     "scully:serve": "scully serve",
-    "sr":"npm run scully -- --scanRoutes",
-    "sw":"scully --watch",
+    "sr": "npm run scully -- --scanRoutes",
+    "sw": "scully --watch",
     "ss": "scully serve",
     "commit": "git add . && npx git-cz",
     "commit:select": "npx git-cz"
@@ -42,6 +43,9 @@
     "@types/jasminewd2": "~2.0.8",
     "@types/node": "^13.13.5",
     "codelyzer": "^5.2.2",
+    "husky": "4.2.5",
+    "lint-staged": "10.2.2",
+    "prettier": "2.0.5",
     "conventional-changelog": "^3.1.21",
     "cz-conventional-changelog": "^3.2.0",
     "jasmine-core": "~3.5.0",
@@ -60,5 +64,16 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,css,scss,less,md,ts,html,component.html}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
