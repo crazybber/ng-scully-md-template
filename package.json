@@ -15,7 +15,7 @@
     "sr": "npm run scully -- --scanRoutes",
     "sw": "scully --watch",
     "ss": "scully serve",
-    "post": "ng g @scullyio/init:post --target='blog'",
+    "post": "ng g @scullyio/init:post --metaDataFile='blog-meta.yaml' --target='blog'",
     "commit": "git add . && npx git-cz",
     "commit:select": "npx git-cz",
     "deploy:gh-pages": "git subtree push --prefix dist/site-blog origin gh-pages"
