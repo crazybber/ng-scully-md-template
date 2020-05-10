@@ -14,39 +14,39 @@
 
 <div class="row">
   <div class="col s12 l3">
-    <div class="table-of-contents">
+    <div div class class="table-of-contents">
       <h3 class="title">
         <a href="https://arch.run">Content Menus</a>
       </h3>
       <div class="title-based-on">
         demo from <a href="https://arch.run" target="_blank">arch.run</a>
       </div>
-      <ul>
-        <li class="menu-subtitle"><span>Markdown</span></li>
-        <li><a href="#headers">Headers</a></li>
-        <li><a href="#emphasis">Emphasis</a></li>
-        <li><a href="#lists">Lists</a></li>
-        <li><a href="#links">Links</a></li>
-        <li><a href="#images">Images</a></li>
-      </ul>
     </div>
+    <ul>
+      <li class="menu-subtitle"><span>Markdown</span></li>
+      <li><a href="#headers">Headers</a></li>
+      <li><a href="#emphasis">Technology</a></li>
+      <li><a href="#lists">Life</a></li>
+      <li><a href="#images">Images</a></li>
+      <li><a href="#links">Links</a></li>
+    </ul>
   </div>
   <div class="col s12 l9">
     <!-- HEADER -->
     <section id="headers">
       <h2 class="subtitle">Headers</h2>
-      <pre>{{ headers }}</pre>
+      <pre> prev: {{ headers }}</pre>
       <markdown>{{ headers }}</markdown>
     </section>
 
     <!-- CONTENT FROM REMOTE URL -->
     <section id="remote-url">
-      <h2 class="subtitle">Remote Contents</h2>
-
-      <!-- <markdown>
-            Using component with `src` property to fetch remote markdown file `app/remote/demo.md`
-          </markdown>
-          <markdown [src]="'app/remote/demo.md'"></markdown> -->
+      <h3 class="subtitle">Remote Contents</h3>
+      <markdown>
+        Using component with `src` property to fetch remote markdown file
+        `assets/remote/demo.md`
+      </markdown>
+      <markdown [src]="'assets/remote/demo.md'"></markdown>
     </section>
   </div>
 </div>
