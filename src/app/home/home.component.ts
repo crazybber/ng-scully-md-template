@@ -33,9 +33,30 @@ export class HomeComponent implements OnInit {
     this.animateTitle();
     this.animateScrollTop();
   }
-  animateScrollTop() {
-    throw new Error('Method not implemented.');
+
+  private animateScrollTop() {
+    const scrollTop = $('.fixed-action-btn button');
+    const windowOffset = window.pageYOffset;
+    const hasScaleInClass = scrollTop.hasClass('scale-in');
+    const targetScaleInClass = windowOffset > 100 ? true : false;
+    // scale-in
+    if (!hasScaleInClass && targetScaleInClass) {
+      scrollTop.addClass('scale-in');
+      of(null)
+        .pipe(
+          tap(() => scrollTop.addClass('pulse')),
+          delay(1000),
+          tap(() => scrollTop.removeClass('pulse')),
+          first()
+        )
+        .subscribe();
+    }
+    // scale-out
+    if (hasScaleInClass && !targetScaleInClass) {
+      scrollTop.removeClass('scale-in');
+    }
   }
+
   animateTitle() {
     throw new Error('Method not implemented.');
   }
