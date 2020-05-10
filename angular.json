@@ -38,6 +38,11 @@
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/prismjs/prism.js",
               "node_modules/prismjs/components/prism-css.min.js",
+              "node_modules/prismjs/components/prism-javascript.min.js",
+              "node_modules/prismjs/components/prism-markdown.min.js",
+              "node_modules/prismjs/components/prism-go.min.js",
+              "node_modules/prismjs/components/prism-python.min.js",
+              "node_modules/prismjs/components/prism-typescript.min.js",
               "node_modules/prismjs/plugins/line-highlight/prism-line-highlight.js",
               "node_modules/materialize-css/dist/js/materialize.min.js"
             ]
